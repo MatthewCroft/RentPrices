@@ -1,0 +1,18 @@
+Things to do:
+1. see if the site url is uniform for all zipcodes (manual)
+
+Getting home data
+- query the url and save html
+- grab links to homes
+- is a next link? go to step 1 with new url
+	- look for page link in links from first html return
+- extract info from home links
+
+
+What still needs worked on
+- need to process next links
+
+- store the zipcode and the property links in the database
+	- create table in database
+	- get python module for mysql
+	- bulid method to write property links to database
