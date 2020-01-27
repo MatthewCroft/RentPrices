@@ -16,13 +16,13 @@ def main():
 	page_count = [1]
 	while queue:
 		zip_code_link = queue.pop()
-		zip_code = re.search("zip-(\d{5})/", zip_code_link)
-		if int(zip_code.group(1)) > 94117:
+		zip_code = re.search("zip-(\d{5})/", zip_code_link).group(1)
+		if int(zip_code) > 94117:
 			continue
 		page = query(zip_code_link)
 		property_links = get_property_links(page, queue, page_count)
 		if property_links:
-			commit_links(property_links, zip_code.group(1))
+			commit_links(property_links, zip_code)
 
 
 def commit_links(property_links, zip_code):
@@ -46,7 +46,7 @@ def get_property_links(webpage, queue, count):
 	for href in hrefs:
 		h = href.get('href')
 
-		next_page = re.search('page', str(h))
+		next_page = re.search('page=', str(h))
 
 		if next_page:
 			if int(h[-1:]) > len(count):
