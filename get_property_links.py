@@ -17,7 +17,7 @@ def main():
 	while queue:
 		zip_code_link = queue.pop()
 		zip_code = re.search("zip-(\d{5})/", zip_code_link)
-		if int(zip_code) > 94117:
+		if int(zip_code.group(1)) > 94117:
 			continue
 		page = query(zip_code_link)
 		property_links = get_property_links(page, queue, page_count)
