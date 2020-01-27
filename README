@@ -16,3 +16,9 @@ What still needs worked on
 	- create table in database
 	- get python module for mysql
 	- bulid method to write property links to database
+
+
+For property links
+- check when no rent data
+- bad link?
+- check when multiple rent data /(vs) when there is one
